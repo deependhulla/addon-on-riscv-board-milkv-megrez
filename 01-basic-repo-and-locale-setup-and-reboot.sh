@@ -11,7 +11,7 @@ apt -y full-upgrade
 ## my few packages to install even if its there default at times ....
 apt -y install ifupdown openssh-server locales whiptail vim auditd curl screen net-tools \
 git mc tmux parted gdisk debconf-utils pwgen apt-transport-https software-properties-common \
-ethtool dirmngr ca-certificates elinks wget python3-full python3-pip
+zstd ethtool dirmngr ca-certificates elinks wget python3-full python3-pip
 
 ## install chrony and remove default timesync package
 apt -y install chrony
