@@ -9,8 +9,9 @@ apt-get remove --purge supertuxkart-data
 apt-get update
 apt -y full-upgrade
 ## my few packages to install even if its there default at times ....
-apt -y install ifupdown openssh-server locales whiptail vim auditd curl screen net-tools git mc tmux parted \
-gdisk debconf-utils pwgen apt-transport-https software-properties-common ethtool dirmngr ca-certificates 
+apt -y install ifupdown openssh-server locales whiptail vim auditd curl screen net-tools \
+git mc tmux parted gdisk debconf-utils pwgen apt-transport-https software-properties-common \
+ethtool dirmngr ca-certificates elinks wget
 
 ## install chrony and remove default timesync package
 apt -y install chrony
