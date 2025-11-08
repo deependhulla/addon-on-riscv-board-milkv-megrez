@@ -6214,9 +6214,9 @@
 		linux,cma {
 			compatible = "shared-dma-pool";
 			reusable;
-			size = <0x00 0x20000000>;
+			size = <0x05 0x00000000>;
 			alignment = <0x00 0x1000>;
-			alloc-ranges = <0x00 0x80000000 0x04 0x00>;
+			alloc-ranges = <0x00 0x80000000 0x08 0x00>;
 			linux,cma-default;
 		};
 
@@ -6248,7 +6248,7 @@
 
 		mmz_nid_0_part_0 {
 			compatible = "eswin-reserve-memory";
-			reg = <0x03 0x00 0x01 0x80000000>;
+			reg = <0x03 0x00 0x05 0x00>
 			no-map;
 		};
 	};
