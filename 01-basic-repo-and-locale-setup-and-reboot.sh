@@ -16,6 +16,9 @@ ethtool dirmngr ca-certificates elinks wget
 ## install chrony and remove default timesync package
 apt -y install chrony
 
+## install device-tree-compiler  for dc to make dts and dtb file of eswin for ram changes
+apt -y device-tree-compiler 
+
 ## set to India IST timezone -- You can change as per your timezone
 timedatectl set-timezone 'Asia/Kolkata'
 dpkg-reconfigure -f noninteractive tzdata

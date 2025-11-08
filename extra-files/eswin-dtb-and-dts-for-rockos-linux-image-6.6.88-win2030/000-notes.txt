@@ -1,0 +1,15 @@
+Downlaod SD Card Image of RockOS (Debian 13) for Milkv Megrez Board
+
+https://fast-mirror.isrc.ac.cn/rockos/images/generic/20250630_20250818/sdcard-rockos-20250818-234921.img.zst
+
+
+its this orginal DTB copy in this folder
+
+/bin/cp -pRv /boot/dtbs/linux-image-6.6.88-win2030/eswin/eic7700-milkv-megrez.dtb eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dtb
+
+## make sue below package is installed
+
+apt -y install device-tree-compiler
+
+## to get orginal dts code for checking.
+dtc -i dtb -O dts -o eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts 
