@@ -11,7 +11,7 @@ apt -y full-upgrade
 ## my few packages to install even if its there default at times ....
 apt -y install ifupdown openssh-server locales whiptail vim auditd curl screen net-tools \
 git mc tmux parted gdisk debconf-utils pwgen apt-transport-https software-properties-common \
-ethtool dirmngr ca-certificates elinks wget
+ethtool dirmngr ca-certificates elinks wget python3-full python3-pip
 
 ## install chrony and remove default timesync package
 apt -y install chrony
@@ -39,6 +39,13 @@ locale-gen en_US en_US.UTF-8
 echo "LANG=en_US.UTF-8" > /etc/environment
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+
+## create venv for root to use
+python3 -m venv /opt/venv
+echo "" >> /root/.bashrc
+echo "source /opt/venv/bin/activate" >> /root/.bashrc
+
+
 
 ##disable ipv6 as most time not required
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 1>/dev/null
@@ -94,11 +101,11 @@ echo "syntax on" >> ~/.vimrc
 echo "\"set mouse=a/g" >  /etc/skel/.vimrc
 echo "syntax on" >> /etc/skel/.vimrc
 
-##Comment this if you do not want root login via ssh activated using port 5522 , i use inhouse for developmrnt most
+## remove Comment this if you  want root login via ssh activated using port 5522 , i use inhouse for development most
 ## but do set passwrod for root and debian user strong first.
-sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
-sed -i "s/#Port 22/Port 5522/g" /etc/ssh/sshd_config
-systemctl restart ssh
+#sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
+#sed -i "s/#Port 22/Port 5522/g" /etc/ssh/sshd_config
+#systemctl restart ssh
 
 
 ## remove old package or removed one
