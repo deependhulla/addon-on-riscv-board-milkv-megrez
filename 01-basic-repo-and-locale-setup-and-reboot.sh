@@ -4,9 +4,9 @@ DEBIAN_FRONTEND=noninteractive
 
 
 ## remove of game data
-apt-get remove --purge supertuxkart-data
+apt -y remove --purge supertuxkart-data
 
-apt-get update
+apt update
 apt -y full-upgrade
 ## my few packages to install even if its there default at times ....
 apt -y install ifupdown openssh-server locales whiptail vim auditd curl screen net-tools \
@@ -17,7 +17,12 @@ ethtool dirmngr ca-certificates elinks wget
 apt -y install chrony
 
 ## install device-tree-compiler  for dc to make dts and dtb file of eswin for ram changes
-apt -y device-tree-compiler 
+apt -y install device-tree-compiler 
+
+
+## for build, compliing ..tools installation...
+apt -y install build-essential cmake libcurl4-openssl-dev
+
 
 ## set to India IST timezone -- You can change as per your timezone
 timedatectl set-timezone 'Asia/Kolkata'
