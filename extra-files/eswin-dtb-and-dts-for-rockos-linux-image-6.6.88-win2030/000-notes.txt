@@ -12,4 +12,11 @@ its this orginal DTB copy in this folder
 apt -y install device-tree-compiler
 
 ## to get orginal dts code for checking.
-dtc -i dtb -O dts -o eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts 
+dtc -i dtb -O dts -o eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts
+
+#### when default -- npu allocated is 7GB --- below is free -h
+               total        used        free      shared  buff/cache   available
+Mem:            25Gi       2.4Gi        19Gi        39Mi       4.3Gi        23Gi
+Swap:             0B          0B          0B 
+
+
