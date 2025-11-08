@@ -21,7 +21,7 @@ apt -y install device-tree-compiler
 
 
 ## for build, compliing ..tools installation...
-apt -y install build-essential cmake libcurl4-openssl-dev
+apt -y install build-essential cmake libcurl4-openssl-dev golang-go
 
 
 ## set to India IST timezone -- You can change as per your timezone
