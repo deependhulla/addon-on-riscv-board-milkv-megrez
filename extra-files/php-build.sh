@@ -7,6 +7,9 @@ apt-get install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg-de
 
 
 cd /opt/
+
+
+
 curl -L https://github.com/e-dant/watcher/archive/refs/heads/next.tar.gz | tar xz
 cd watcher-next/watcher-c
 c++ -o libwatcher-c.so ./src/watcher-c.cpp -I ./include -I ../include -std=c++17 -fPIC -shared
@@ -24,7 +27,7 @@ tar -xzf php-8.4.14.tar.gz
 
 git clone https://github.com/php/frankenphp
 
-export PATH=/opt/go/bin/:$PATH
+export PATH=/opt/go/bin/:/usr/local/bin:$PATH
 
 cd /opt/php-8.4.14
 ./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers \
@@ -35,6 +38,11 @@ cd /opt/php-8.4.14
  --enable-pcntl --with-zip --with-gd --enable-intl --with-gettext --with-ldap \
  --with-pdo-pgsql --with-pgsql --with-tidy --with-xsl --with-snmp --with-sodium --with-ffi
 
+cd /opt/
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 
 cd /opt/frankenphp
 
