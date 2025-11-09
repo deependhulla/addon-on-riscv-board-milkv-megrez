@@ -11,7 +11,7 @@ This repository details the configuration and customization steps for the **Milk
     ```bash
     apt-get -y install git
     cd /opt/
-    git clone [https://github.com/deependhulla/addon-on-riscv-board-milkv-megrez](https://github.com/deependhulla/addon-on-riscv-board-milkv-megrez)
+    git clone https://github.com/deependhulla/addon-on-riscv-board-milkv-megrez
     ```
 3.  **Execution Order:** Run the setup scripts sequentially as the root user. A **reboot** is required after the first script.
     ```bash
