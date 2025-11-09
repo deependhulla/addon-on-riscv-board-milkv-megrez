@@ -40,7 +40,7 @@ modprobe kvm
 # - virt-manager: Graphical desktop application for managing VMs (requires X-forwarding or desktop access).
 # - lxc: Linux Containers user-space tools.
 
-apt -y  install cockpit bridge-utils cockpit-machines cockpit-podman realmd sscg u-boot-qemu qemu-efi-riscv64 virt-manager lxc 
+apt -y  install cockpit bridge-utils cockpit-machines cockpit-podman realmd sscg u-boot-qemu qemu-efi-riscv64 virt-manager lxc podman podman-compose 
 
 
 ## 3. Usage Notes
