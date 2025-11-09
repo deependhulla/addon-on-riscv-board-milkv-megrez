@@ -19,7 +19,7 @@ This repository details the configuration and customization steps for the **Milk
     bash 01-basic-repo-and-locale-setup-and-reboot.sh
     # >>> REBOOT REQUIRED HERE <<<
     bash 02-all-eswin-es-sdk-pacakges-setup.sh
-    # Continue with optional setup scripts (03, ollama, qwen, kvm)
+    # Continue with optional setup scripts ( ollama, qwen, kvm)
     ```
 
 ---
@@ -32,7 +32,6 @@ The following table summarizes the purpose and the most important customizations
 | :--- | :--- | :--- |
 | **`01-basic-repo-and-locale-setup-and-reboot.sh`** | **Base System Setup & Hardening** | Full system upgrade, installation of essential tools (Vim, tmux), timezone set to **Asia/Kolkata (IST)**, persistent **IPv6 disablement**, system-wide bash aliases (`ll`, `rm -i`), and Python Virtual Environment (`/opt/venv`) creation. |
 | **`02-all-eswin-es-sdk-pacakges-setup.sh`** | **NPU Development Environment** | Installs all required **`es-sdk-*`** packages and libraries. This enables the use of the on-board **Eswin NPU** for AI/ML acceleration. |
-| **`03-add-non-default-user.sh`** | **User Management & Security** | Creates the non-root user **`milkv`** (password: `milkv`), grants **sudo** access, copies necessary environment files, and cleans up the default user's home directory. **⚠️ Mandatory:** Change the default password immediately after execution! |
 | **`ollama-for-riscv.sh`** | **Local LLM Deployment (Ollama)** | Clones and **builds the Ollama service** specifically for RISC-V, installs the systemd unit, starts the service, and pulls lightweight models (`smollm:135m`, `granite4:350m`) for immediate testing. |
 | **`qwen-model-download-and-testing.sh`** | **NPU-Optimized LLM Setup** | Installs `modelscope`, downloads the **Qwen2-0.5B model** optimized for the **Eswin NPU (ENNP)**, organizes files for the Eswin sample structure, and executes the NPU CLI tool for testing. |
 | **`setup-for-virtual-kvm-qemu-and-containers-with-podman.sh`** | **Virtualization & Containerization** | Activates the **KVM** kernel module, installs **QEMU**, **Podman** (daemonless containers), **LXC**, and management interfaces like **Cockpit** (web interface) and **virt-manager** (GUI). |
