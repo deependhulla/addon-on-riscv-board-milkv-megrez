@@ -9,7 +9,7 @@ https://fast-mirror.isrc.ac.cn/rockos/images/generic/20250630_20250818/sdcard-ro
 **Install** the `git` and `vim` packages to download this **repo** and work with **Vim**.
 
 ```bash
-apt-get -y install vim git
+apt -y install vim git
 cd /opt/
 git clone https://github.com/deependhulla/addon-on-riscv-board-milkv-megrez
 ```
