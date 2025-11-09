@@ -7,7 +7,9 @@ apt-get install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg-de
 
 
 
-./configure     --enable-embed     --enable-zts     --disable-zend-signals     --enable-zend-max-execution-timers     --with-config-file-path=/etc     --with-zlib     --with-openssl     --with-curl     --with-pdo-mysql=mysqlnd     --enable-mbstring     --enable-soap     --enable-sockets
+./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers \
+  --with-config-file-path=/etc  --with-zlib --with-openssl --with-curl --with-pdo-mysql=mysqlnd \
+ --enable-mbstring --enable-soap  --enable-sockets
 
 
 #https://github.com/e-dant/watcher/tree/release/watcher-c
