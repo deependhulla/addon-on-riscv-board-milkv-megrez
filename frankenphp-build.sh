@@ -1,5 +1,6 @@
 #!/bin/bash
 
+## caddy webserver, php , golang are avaible for riscv ..so let build frankenphp for riscv
 #To Complie PHP first ,then get frankenphp
 #https://frankenphp.dev/docs/compile/
 
