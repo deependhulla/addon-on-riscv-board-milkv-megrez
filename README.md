@@ -40,17 +40,18 @@ The following table summarizes the purpose and the most important customizations
 
 ## 🧠 Key Development Areas
 
-### 1. NPU Acceleration
-The focus is on leveraging the Eswin NPU. Scripts ensure the necessary SDKs are installed and demonstrate the deployment of a **quantized LLM (Qwen2-0.5B)**, highlighting the board's capability for accelerated AI workloads.
 
-### 2. General-Purpose Computing
-The setup includes modern utilities and configurations to support diverse development tasks:
-* **Go** and **build-essential** for compiling applications.
-* **Python Virtual Environment** to manage project dependencies cleanly.
-* **Chronyd** for reliable time synchronization.
+## 1. NPU Acceleration (19.95 TOPS)
+The core focus is leveraging the **ESWIN EIC7700X NPU**. Scripts facilitate the installation of the NPU SDK and demonstrate the deployment of a **quantized LLM (Qwen2-0.5B)** for hardware acceleration.
 
-### 3. Server Management
-The installation of **Cockpit** provides a user-friendly, web-based interface (accessible on **port 9090**) to manage system services, users, storage, and both **VMs (Cockpit Machines)** and **Containers (Cockpit Podman)**. This simplifies remote administration.
+* **RAM Split Customization:** The memory allocation between the OS and NPU can be adjusted using custom **Device Tree Blobs (DTBs)**. Refer to the notes for details on maximizing NPU memory:
+    * **DTB Modification Notes:** [`eswin-dtb-and-dts-for-rockos-linux-image-6.6.88-win2030/000-quick-notes.md`](eswin-dtb-and-dts-for-rockos-linux-image-6.6.88-win2030/000-quick-notes.md)
+
+### 2. Modern Web Development with FrankenPHP
+The inclusion of **FrankenPHP** (Caddy + Embedded PHP) shifts the board's capability from a traditional PHP-FPM stack to a **single-process, high-performance application server**. This is critical for serving modern PHP frameworks efficiently, offering **persistent PHP workers** and **automatic TLS/HTTP/3** from Caddy.
+
+### 3. General-Purpose & Server Management
+The setup ensures readiness for diverse development with tools like **Go**, **build-essential**, and a dedicated **Python Virtual Environment**. The **Cockpit** web interface (on **port 9090**) provides simplified remote management for system services, VMs, and Podman Containers.
 
 ---
 
@@ -59,3 +60,4 @@ The installation of **Cockpit** provides a user-friendly, web-based interface (a
 * **RockOS Images:** https://fast-mirror.isrc.ac.cn/rockos/images/generic/20250630_20250818/sdcard-rockos-20250818-234921.img.zst
 * **MilkV Megrez Development Guide:** https://milkv.io/docs/megrez/development-guide/ENNP-SDK/yolov3
 * **Jeff Geerling Guide to build Ollama on RISC-V** https://www.jeffgeerling.com/blog/2025/how-build-ollama-run-llms-on-risc-v-linux
+* **FrankenPHP Docs** https://frankenphp.dev/docs/compile/
