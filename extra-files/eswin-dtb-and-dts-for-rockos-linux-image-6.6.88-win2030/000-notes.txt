@@ -19,6 +19,13 @@ dtc -i dtb -O dts -o eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-a
 Mem:            25Gi       2.4Gi        19Gi        39Mi       4.3Gi        23Gi
 Swap:             0B          0B          0B 
 
+To Test Different dtb for NPU RAM use 
+eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dtb
+eic7700-milkv-megrez-orginal-copy-with-25gb-usable-for-os-and7gb-for-npu.dts
+eic7700-milkv-megrez-updated-copy-with-12gb-usable-for-os-and20gb-for-npu.dtb
+eic7700-milkv-megrez-updated-copy-with-12gb-usable-for-os-and20gb-for-npu.dts
+eic7700-milkv-megrez-updated-copy-with-20gb-for-npu-with-desktop-as-cma-512mb.dtb
+eic7700-milkv-megrez-updated-copy-with-20gb-for-npu-with-desktop-as-cma-512mb.dts
 
 
 ### Afterward
