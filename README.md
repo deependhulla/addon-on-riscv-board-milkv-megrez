@@ -30,7 +30,7 @@ The following table summarizes the purpose and the most important customizations
 
 | Script Filename | Core Functionality | Key Customizations and Features |
 | :--- | :--- | :--- |
-| **`01-basic-repo-and-locale-setup-and-reboot.sh`** | **Base System Setup & Hardening** | Full system upgrade, installation of essential tools (Vim, tmux), timezone set to **Asia/Kolkata (IST)**, persistent **IPv6 disablement**, system-wide bash aliases (`ll`, `rm -i`), and Python Virtual Environment (`/opt/venv`) creation. |
+| **`01-basic-repo-and-locale-setup-and-reboot.sh`** | **Base System Setup ** | Full system upgrade, installation of essential tools (Vim, tmux), timezone set to **Asia/Kolkata (IST)**, persistent **IPv6 disablement**, system-wide bash aliases (`ll`, `rm -i`), and Python Virtual Environment (`/opt/venv`) creation. |
 | **`02-all-eswin-es-sdk-pacakges-setup.sh`** | **NPU Development Environment** | Installs all required **`es-sdk-*`** packages and libraries. This enables the use of the on-board **Eswin NPU** for AI/ML acceleration. |
 | **`ollama-for-riscv.sh`** | **Local LLM Deployment (Ollama)** | Clones and **builds the Ollama service** specifically for RISC-V, installs the systemd unit, starts the service, and pulls lightweight models (`smollm:135m`, `granite4:350m`) for immediate testing. |
 | **`qwen-model-download-and-testing.sh`** | **NPU-Optimized LLM Setup** | Installs `modelscope`, downloads the **Qwen2-0.5B model** optimized for the **Eswin NPU (ENNP)**, organizes files for the Eswin sample structure, and executes the NPU CLI tool for testing. |
@@ -58,3 +58,4 @@ The installation of **Cockpit** provides a user-friendly, web-based interface (a
 
 * **RockOS Images:** https://fast-mirror.isrc.ac.cn/rockos/images/generic/20250630_20250818/sdcard-rockos-20250818-234921.img.zst
 * **MilkV Megrez Development Guide:** https://milkv.io/docs/megrez/development-guide/ENNP-SDK/yolov3
+* **Jeff Geerling Guide to build Ollama on RISC-V** https://www.jeffgeerling.com/blog/2025/how-build-ollama-run-llms-on-risc-v-linux
