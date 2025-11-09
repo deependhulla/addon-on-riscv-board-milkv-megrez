@@ -72,7 +72,7 @@ After applying a DTB that allocates **20GB** to the NPU, the usable system memor
 
 ## ⚠️ Important Usage Warning
 
-**DISCLAIMER:** Please use these modified DTBs **at your own risk**. While they have been validated to work (as the official DTB file sometimes requires adjustment), they alter fundamental hardware configuration.
+**DISCLAIMER:** Please use these modified DTBs **at your own risk**. While they have been validated to work (**as the official DTB file seems for older kernel**), they alter fundamental hardware configuration.
 
 * **Maximum NPU Allocation Tested:** I have successfully tested a configuration that makes **25GB available to the NPU** for running very large models, such as the **Deepseek model**, as detailed in the official documentation:
     `https://milkv.io/docs/megrez/development-guide/runtime-sample/deepseek-r1`
