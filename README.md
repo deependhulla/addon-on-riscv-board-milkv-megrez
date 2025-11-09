@@ -35,7 +35,7 @@ The following table summarizes the purpose and the most important customizations
 | **`ollama-for-riscv.sh`** | **Local LLM Deployment (Ollama)** | Clones and **builds the Ollama service** specifically for RISC-V, installs the systemd unit, starts the service, and pulls lightweight models (`smollm:135m`, `granite4:350m`) for immediate testing. |
 | **`qwen-model-download-and-testing.sh`** | **NPU-Optimized LLM Setup** | Installs `modelscope`, downloads the **Qwen2-0.5B model** optimized for the **Eswin NPU (ENNP)**, organizes files for the Eswin sample structure, and executes the NPU CLI tool for testing. |
 | **`setup-for-virtual-kvm-qemu-and-containers-with-podman.sh`** | **Virtualization & Containerization** | Activates the **KVM** kernel module, installs **QEMU**, **Podman** (daemonless containers), **LXC**, and management interfaces like **Cockpit** (web interface) and **virt-manager** (GUI). |
-| **`frankenphp-build.sh`** | **Modern PHP/Web Server Build** | **Compiles FrankenPHP** (Caddy + PHP) from source for RISC-V. This enables using PHP in **worker mode** for significantly higher performance than traditional PHP-FPM, along with Caddy's **automatic HTTPS** and **HTTP/3** support. |
+| **`frankenphp-build.sh`** | **Modern PHP/Web Server Build** | **Compiles FrankenPHP** (Caddy + PHP) from source for RISC-V. This enables using PHP for significantly higher performance than traditional PHP-FPM, along with Caddy's **automatic HTTPS** and **HTTP/3** support. |
 ---
 
 ## 🧠 Key Development Areas
@@ -48,7 +48,7 @@ The core focus is leveraging the **ESWIN EIC7700X NPU**. Scripts facilitate the 
     * **DTB Modification Notes:** [`eswin-dtb-and-dts-for-rockos-linux-image-6.6.88-win2030/000-quick-notes.md`](eswin-dtb-and-dts-for-rockos-linux-image-6.6.88-win2030/000-quick-notes.md)
 
 ### 2. Modern Web Development with FrankenPHP
-The inclusion of **FrankenPHP** (Caddy + Embedded PHP) shifts the board's capability from a traditional PHP-FPM stack to a **single-process, high-performance application server**. This is critical for serving modern PHP frameworks efficiently, offering **persistent PHP workers** and **automatic TLS/HTTP/3** from Caddy.
+The inclusion of **FrankenPHP** (Caddy + Embedded PHP) shifts the board's capability from a traditional PHP-FPM stack to a **high-performance application server**. This is critical for serving modern PHP frameworks efficiently, offering **persistent PHP workers** and **automatic TLS/HTTP/3** from Caddy.
 
 ### 3. General-Purpose & Server Management
 The setup ensures readiness for diverse development with tools like **Go**, **build-essential**, and a dedicated **Python Virtual Environment**. The **Cockpit** web interface (on **port 9090**) provides simplified remote management for system services, VMs, and Podman Containers.
