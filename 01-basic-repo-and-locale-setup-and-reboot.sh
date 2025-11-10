@@ -107,7 +107,7 @@ echo "alias mv='mv -i'" >> /etc/bash.bashrc
 # Interactive remove
 echo "alias rm='rm -i'" >> /etc/bash.bashrc
 # docker cli alias
-echo "alias docker=podman'" >> /etc/bash.bashrc
+echo "alias docker='podman'" >> /etc/bash.bashrc
 
 # Set default editor to vi/vim , example for crontab -e
 echo "export EDITOR=vi" >> /etc/bash.bashrc
