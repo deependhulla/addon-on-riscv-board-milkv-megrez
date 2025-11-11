@@ -60,13 +60,7 @@ export PATH=/opt/go/bin/:/usr/local/bin:$PATH
 cd /opt/php-8.4.14
 # Configure PHP compilation with necessary flags for embedding and extensions.
 # --enable-embed and --enable-zts are critical for FrankenPHP integration.
-./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers \
- --with-config-file-path=/etc --with-zlib --with-openssl --with-curl --with-pdo-mysql=mysqlnd \
- --enable-mbstring --enable-soap --enable-sockets --enable-bcmath --with-bz2 \
- --enable-calendar --enable-exif --enable-ftp --with-gmp --enable-shmop \
- --enable-sysvmsg --enable-sysvsem --enable-sysvshm  \
- --enable-pcntl --with-zip --enable-intl --with-gettext --with-ldap \
- --with-pdo-pgsql --with-pgsql --with-tidy --with-xsl --with-snmp --with-sodium --with-ffi
+./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers 
 
 # Compile PHP using all available CPU cores for speed.
 make -j"$(getconf _NPROCESSORS_ONLN)"
