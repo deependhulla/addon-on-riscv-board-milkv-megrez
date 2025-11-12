@@ -18,7 +18,7 @@ apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg
  libbison-dev bison brotli-rs  libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev \
  libzip-dev libzip-dev libwebp-dev libjpeg-dev libpng-dev libfreetype-dev libicu-dev libgettextpo-dev libldap2-dev \
  libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev librabbitmq-dev libmemcached-dev \
- libmagickwand-dev imagemagick libavif-bin  libavif-dev
+ libmagickwand-dev imagemagick libavif-bin  libavif-dev libreadline-dev
 
 ## 2. Compile and Install watcher-c Library
 ############################################################
