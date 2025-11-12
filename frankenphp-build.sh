@@ -10,8 +10,15 @@
 # Install essential build tools, libraries, and development headers required for
 # compiling both PHP and its various extensions (e.g., cURL, OpenSSL, MySQL, Zip, Intl).
 
-apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg-dev libpng-dev libwebp-dev libcurl4-openssl-dev libssl-dev libmcrypt-dev mcrypt libmysqlclient-dev libsqlite3-dev libpq-dev autopoint debhelper dh-autoreconf dh-strip-nondeterminism dwz gettext intltool-debian libarchive-cpio-perl libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl libmail-sendmail-perl libpcre2-32-0 libpcre2-dev libpcre2-posix3 libsys-hostname-long-perl shtool brotli  libbrotli-dev libonig-dev libbison-dev bison brotli-rs  libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev libzip-dev libzip-dev libwebp-dev libjpeg-dev libpng-dev libfreetype-dev libicu-dev libgettextpo-dev libldap2-dev libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev
-
+apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg-dev libpng-dev libwebp-dev \
+ libcurl4-openssl-dev libssl-dev libmcrypt-dev mcrypt libmysqlclient-dev libsqlite3-dev libpq-dev autopoint \
+ debhelper dh-autoreconf dh-strip-nondeterminism dwz gettext intltool-debian libarchive-cpio-perl \
+ libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl libmail-sendmail-perl \
+ libpcre2-32-0 libpcre2-dev libpcre2-posix3 libsys-hostname-long-perl shtool brotli  libbrotli-dev libonig-dev \
+ libbison-dev bison brotli-rs  libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev \
+ libzip-dev libzip-dev libwebp-dev libjpeg-dev libpng-dev libfreetype-dev libicu-dev libgettextpo-dev libldap2-dev \
+ libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev librabbitmq-dev libmemcached-dev \
+ libmagickwand-dev imagemagick libavif-bin  libavif-dev
 
 ## 2. Compile and Install watcher-c Library
 ############################################################
@@ -60,7 +67,13 @@ export PATH=/opt/go/bin/:/usr/local/bin:$PATH
 cd /opt/php-8.4.14
 # Configure PHP compilation with necessary flags for embedding and extensions.
 # --enable-embed and --enable-zts are critical for FrankenPHP integration.
-./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers 
+#./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers 
+./configure --enable-embed=static --enable-zts --disable-zend-signals \
+ --enable-zend-max-execution-timers --with-bz2 --with-curl --enable-gd --with-jpeg --with-webp --with-avif \
+ --enable-intl --with-ffi --enable-exif --with-ldap --enable-mbstring --with-openssl --with-pdo-mysql=mysqlnd \
+ --with-readline --enable-sockets --with-sodium --enable-soap --with-libxml --with-zip --with-mysqli=mysqlnd \
+ --enable-sysvsem  --enable-sysvshm --enable-sysvmsg --enable-soap --enable-pcntl -with-tidy --with-xsl --with-snmp \
+ --enable-shmop --enable-opcache --with-freetype
 
 # Compile PHP using all available CPU cores for speed.
 make -j"$(getconf _NPROCESSORS_ONLN)"
