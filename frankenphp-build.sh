@@ -73,7 +73,7 @@ cd /opt/php-8.4.14
  --enable-intl --with-ffi --enable-exif --with-ldap --enable-mbstring --with-openssl --with-pdo-mysql=mysqlnd \
  --with-readline --enable-sockets --with-sodium --enable-soap --with-libxml --with-zip --with-mysqli=mysqlnd \
  --enable-sysvsem  --enable-sysvshm --enable-sysvmsg --enable-soap --enable-pcntl -with-tidy --with-xsl --with-snmp \
- --enable-shmop --enable-opcache --with-freetype
+ --enable-shmop --enable-opcache --with-freetype --with-zlib
 
 # Compile PHP using all available CPU cores for speed.
 make -j"$(getconf _NPROCESSORS_ONLN)"
