@@ -102,7 +102,7 @@ php -r "unlink('composer-setup.php');"
 
 # Move the Composer Phar archive to a location in the system PATH.
 mv composer.phar /usr/local/bin/composer
-ln -vs /usr/local/bin/composer /bin/composer
+#ln -vs /usr/local/bin/composer /bin/composer
 
 ## 6. Build FrankenPHP
 ############################################################
@@ -113,7 +113,7 @@ cd /opt/frankenphp
 # CGO_ENABLED=1: Enables CGO for linking C libraries (PHP).
 # XCADDY_GO_BUILD_FLAGS: Sets Go linker flags and build tags to reduce binary size and exclude unnecessary modules.
 # CGO_CFLAGS/CGO_LDFLAGS: Provide PHP's include paths and linker flags to xcaddy.
-
+export PATH=/opt/go/bin/:$PATH
 CGO_ENABLED=1 \
 CGO_ENABLED=1 \
 XCADDY_GO_BUILD_FLAGS="-ldflags='-w -s' -tags=nobadger,nomysql,nopgx,nobrotli,nowatcher" \
