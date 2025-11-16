@@ -1,4 +1,7 @@
 
+## mssql driver
+#https://github.com/microsoft/msphpsql/archive/refs/tags/v5.12.0.tar.gz
+
 CGO_ENABLED=1 \
 CGO_ENABLED=1 \
 XCADDY_GO_BUILD_FLAGS="-ldflags='-w -s' -tags=nobadger,nomysql,nopgx,nobrotli,nowatcher" \

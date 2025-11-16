@@ -14,14 +14,14 @@
 apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg-dev libpng-dev libwebp-dev \
  libcurl4-openssl-dev libssl-dev libmcrypt-dev mcrypt libmysqlclient-dev libsqlite3-dev libpq-dev autopoint \
  debhelper dh-autoreconf dh-strip-nondeterminism dwz gettext intltool-debian libarchive-cpio-perl \
- libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl libmail-sendmail-perl \
+ libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl psmisc libmail-sendmail-perl \
  libpcre2-32-0 libpcre2-dev libpcre2-posix3 libsys-hostname-long-perl shtool brotli libbrotli-dev libonig-dev \
  libbison-dev bison brotli-rs libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev \
  libzip-dev libzip-dev libwebp-dev libjpeg-dev libpng-dev libfreetype-dev libicu-dev libgettextpo-dev libldap2-dev \
  libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev librabbitmq-dev libmemcached-dev \
  libmagickwand-dev imagemagick libavif-bin libavif-dev libreadline-dev libmemcached-tools \
  libmemcached11t64 libmemcachedutil2t64 amqp-specs amqp-tools liblz4-dev libyaml-dev librdkafka-dev \
- libprotobuf-c-dev libprotobuf-c1 libprotobuf-dev libprotobuf32t64 unixodbc-dev libhiredis-dev 
+ libprotobuf-c-dev libprotobuf-c1 libprotobuf-dev libprotobuf32t64 unixodbc-dev libhiredis-dev  
 
 ## 2. Compile and Install watcher-c Library
 ############################################################
