@@ -49,10 +49,6 @@ cd /opt/
 wget -c https://github.com/caddyserver/xcaddy/releases/download/v0.4.5/xcaddy_0.4.5_linux_riscv64.deb
 dpkg -i xcaddy_0.4.5_linux_riscv64.deb
 
-# Download and extract the Go compiler for RISC-V.
-wget -c https://go.dev/dl/go1.25.4.linux-riscv64.tar.gz
-tar -xzf go1.25.4.linux-riscv64.tar.gz
-
 # Download and extract the PHP source code.
 wget -c https://www.php.net/distributions/php-8.4.14.tar.gz
 tar -xzf php-8.4.14.tar.gz
@@ -60,8 +56,6 @@ tar -xzf php-8.4.14.tar.gz
 # Clone the FrankenPHP repository.
 git clone https://github.com/php/frankenphp
 
-# Add the downloaded Go binary path to the system PATH environment variable.
-export PATH=/opt/go/bin/:/usr/local/bin:$PATH
 
 ## 4. Compile and Install PHP
 ############################################################
