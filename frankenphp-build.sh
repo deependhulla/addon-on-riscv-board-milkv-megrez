@@ -21,7 +21,8 @@ apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg
  libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev librabbitmq-dev libmemcached-dev \
  libmagickwand-dev imagemagick libavif-bin libavif-dev libreadline-dev libmemcached-tools \
  libmemcached11t64 libmemcachedutil2t64 amqp-specs amqp-tools liblz4-dev libyaml-dev librdkafka-dev \
- libprotobuf-c-dev libprotobuf-c1 libprotobuf-dev libprotobuf32t64 unixodbc-dev libhiredis-dev  
+ libprotobuf-c-dev libprotobuf-c1 libprotobuf-dev libprotobuf32t64 \
+ unixodbc-dev libhiredis-dev flex libfl-dev libfl2 patchelf  
 
 ## 2. Compile and Install watcher-c Library
 ############################################################
@@ -134,6 +135,7 @@ make install
 
 # Return to the /opt directory.
 cd /opt/
+export COMPOSER_ALLOW_SUPERUSER=1
 # Download the Composer installer script.
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
