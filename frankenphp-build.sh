@@ -1,4 +1,5 @@
 #!/bin/bash
+##Author Deepen Dhulla - deepen@deependhulla.com
 # Script: frankenphp-build.sh
 # Purpose: Compiles the FrankenPHP server (Caddy + PHP) from source for the RISC-V architecture.
 #          This process requires compiling PHP first, then using xcaddy to link PHP and Go.
@@ -14,11 +15,13 @@ apt-get -y install re2c libtool pkg-config automake autoconf libxml2-dev libjpeg
  libcurl4-openssl-dev libssl-dev libmcrypt-dev mcrypt libmysqlclient-dev libsqlite3-dev libpq-dev autopoint \
  debhelper dh-autoreconf dh-strip-nondeterminism dwz gettext intltool-debian libarchive-cpio-perl \
  libarchive-zip-perl libdebhelper-perl libfile-stripnondeterminism-perl libmail-sendmail-perl \
- libpcre2-32-0 libpcre2-dev libpcre2-posix3 libsys-hostname-long-perl shtool brotli  libbrotli-dev libonig-dev \
- libbison-dev bison brotli-rs  libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev \
+ libpcre2-32-0 libpcre2-dev libpcre2-posix3 libsys-hostname-long-perl shtool brotli libbrotli-dev libonig-dev \
+ libbison-dev bison brotli-rs libbrotli-dev golang-github-andybalholm-brotli-dev libbrotli1 libbz2-dev libgmp-dev \
  libzip-dev libzip-dev libwebp-dev libjpeg-dev libpng-dev libfreetype-dev libicu-dev libgettextpo-dev libldap2-dev \
  libpq-dev libtidy-dev libxslt-dev libsnmp-dev libsodium-dev gettext libffi-dev librabbitmq-dev libmemcached-dev \
- libmagickwand-dev imagemagick libavif-bin  libavif-dev libreadline-dev
+ libmagickwand-dev imagemagick libavif-bin libavif-dev libreadline-dev libmemcached-tools \
+ libmemcached11t64 libmemcachedutil2t64 amqp-specs amqp-tools liblz4-dev libyaml-dev librdkafka-dev \
+ libprotobuf-c-dev libprotobuf-c1 libprotobuf-dev libprotobuf32t64 unixodbc-dev libhiredis-dev 
 
 ## 2. Compile and Install watcher-c Library
 ############################################################
@@ -65,16 +68,65 @@ export PATH=/opt/go/bin/:/usr/local/bin:$PATH
 
 # Navigate into the PHP source directory.
 cd /opt/php-8.4.14
-# Configure PHP compilation with necessary flags for embedding and extensions.
-# --enable-embed and --enable-zts are critical for FrankenPHP integration.
-#./configure --enable-embed --enable-zts --disable-zend-signals --enable-zend-max-execution-timers 
-./configure --enable-embed=static --enable-zts --disable-zend-signals \
- --enable-zend-max-execution-timers --with-bz2 --with-curl --enable-gd --with-jpeg --with-webp --with-avif \
- --enable-intl --with-ffi --enable-exif --with-ldap --enable-mbstring --with-openssl --with-pdo-mysql=mysqlnd \
- --with-readline --enable-sockets --with-sodium --enable-soap --with-libxml --with-zip --with-mysqli=mysqlnd \
- --enable-sysvsem  --enable-sysvshm --enable-sysvmsg --enable-soap --enable-pcntl -with-tidy --with-xsl --with-snmp \
- --enable-shmop --enable-opcache --with-freetype --with-zlib \
- --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data
+./configure \
+    --enable-embed=static \
+    --enable-zts \
+    --disable-cli \
+    --disable-fpm \
+    --disable-zend-signals \
+    --enable-zend-max-execution-timers \
+    --enable-opcache \
+    --enable-pcntl \
+    --enable-shmop \
+    --enable-sysvsem \
+    --enable-sysvshm \
+    --enable-sysvmsg \
+    --enable-sockets \
+    --enable-soap \
+    --enable-intl \
+    --enable-exif \
+    --enable-dba \
+    --enable-ast \
+    --enable-apcu \
+    --enable-brotli \
+    --enable-igbinary \
+    --enable-lz4 \
+    --enable-memcache \
+    --enable-memcached \
+    --enable-parallel \
+    --enable-protobuf \
+    --enable-redis \
+    --enable-redis-session \
+    --enable-zstd \
+    --with-zlib \
+    --with-bz2 \
+    --with-curl \
+    --with-gd \
+    --with-freetype \
+    --with-jpeg \
+    --with-webp \
+    --with-avif \
+    --with-gmp \
+    --with-ldap \
+    --with-libxml \
+    --with-imagick \
+    --with-mbstring \
+    --with-openssl \
+    --with-pdo-mysql=mysqlnd \
+    --with-mysqli=mysqlnd \
+    --with-pdo-pgsql \
+    --with-pgsql \
+    --with-readline \
+    --with-sodium \
+    --with-ssh2 \
+    --with-tidy \
+    --with-zip \
+    --with-xlswriter \
+    --with-xz \
+    --with-yaml \
+    --with-libzstd
+## not added for ms sql  --driver not there for riscv --pre-complied
+    ##--enable-sqlsrv --with-pdo-sqlsrv \
 
 # Compile PHP using all available CPU cores for speed.
 make -j"$(getconf _NPROCESSORS_ONLN)"
