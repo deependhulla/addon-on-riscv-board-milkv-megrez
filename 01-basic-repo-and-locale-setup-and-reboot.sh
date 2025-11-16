@@ -36,7 +36,14 @@ apt -y install chrony
 apt -y install device-tree-compiler 
 
 # Install build tools essential for compiling applications from source code
+## go default install so it take other packages ..then go latest to install
 apt -y install build-essential cmake libcurl4-openssl-dev golang-go
+
+cd /opt/
+# Download and extract the Go compiler for RISC-V.
+wget -c https://go.dev/dl/go1.25.4.linux-riscv64.tar.gz
+tar -xzf go1.25.4.linux-riscv64.tar.gz
+cd -
 
 ## 3. Timezone and Locale Setup
 ############################################################
@@ -115,6 +122,8 @@ echo "export EDITOR=vi" >> /etc/bash.bashrc
 echo "export LC_CTYPE=en_US.UTF-8" >> /etc/bash.bashrc
 echo "export LC_ALL=en_US.UTF-8" >> /etc/bash.bashrc
 echo "export LANGUAGE=en_US.UTF-8" >> /etc/bash.bashrc
+## update path for go lang and php and other extra pacakge
+echo "export PATH=/opt/go/bin:/usr/local/bin:\$PATH" >> /etc/bash.bashrc
 
 ## 6. /etc/rc.local and systemd Setup
 ############################################################
