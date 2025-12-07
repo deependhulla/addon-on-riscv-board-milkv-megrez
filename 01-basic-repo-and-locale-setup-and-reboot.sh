@@ -37,7 +37,8 @@ apt -y install device-tree-compiler
 
 # Install build tools essential for compiling applications from source code
 ## go default install so it take other packages ..then go latest to install
-apt -y install build-essential cmake libcurl4-openssl-dev golang-go
+apt -y install build-essential cmake libcurl4-openssl-dev golang-go \
+ libc-devtools glibc-doc liblzma-doc opencv-doc libraw1394-doc libtbb-doc glibc-doc-reference libexif-doc
 
 cd /opt/
 # Download and extract the Go compiler for RISC-V.
