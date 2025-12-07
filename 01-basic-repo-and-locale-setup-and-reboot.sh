@@ -94,8 +94,8 @@ echo "source /opt/venv/bin/activate" >> /root/.bashrc
 # Disable IPv6 immediately for the current session (for all and default interfaces)
 # This is often done in environments where IPv6 is not required or may cause issues.
 
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 1>/dev/null
-sysctl -w net.ipv6.conf.default.disable_ipv6=1 1>/dev/null
+#sysctl -w net.ipv6.conf.all.disable_ipv6=1 1>/dev/null
+#sysctl -w net.ipv6.conf.default.disable_ipv6=1 1>/dev/null
 
 # Configure CentOS/RHEL-like shell aliases and environment variables for all interactive users
 # These aliases provide protection against accidental overwrites/deletions (-i) and
@@ -134,8 +134,8 @@ touch /etc/rc.local
 # Add  persistent IPv6 disablement
 
 printf '%s\n' '#!/bin/bash'  | tee -a /etc/rc.local 1>/dev/null
-echo "sysctl -w net.ipv6.conf.all.disable_ipv6=1" >>/etc/rc.local
-echo "sysctl -w net.ipv6.conf.default.disable_ipv6=1" >> /etc/rc.local
+echo "#sysctl -w net.ipv6.conf.all.disable_ipv6=1" >>/etc/rc.local
+echo "#sysctl -w net.ipv6.conf.default.disable_ipv6=1" >> /etc/rc.local
 # Set swappiness to 0 (reduces how often the system swaps to disk, preferring RAM)
 echo "sysctl vm.swappiness=0" >> /etc/rc.local
 echo "exit 0" >> /etc/rc.local
