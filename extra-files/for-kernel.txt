@@ -1,1 +1,38 @@
 apt-get install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev libncurses-dev openssl libiberty-dev libssl-dev dkms libelf-dev libudev-dev libpci-dev golang-go qemu-user-static rsync cpio rpm
+
+apt install debhelper libdw-dev
+
+cd /opt/
+wget -c https://git.kernel.org/torvalds/t/linux-6.19-rc2.tar.gz
+
+tar -xvzf linux-6.19-rc2.tar.gz
+
+cd /opt/linux-6.19-rc2
+make ARCH=riscv menuconfig
+
+## extra notes
+#Copy current config: cp /boot/config-$(uname -r) .config
+#Update config: Run make oldconfig or make menuconfig to adjust settings for the new kernel version.
+#Disable trusted keys (if required): To avoid build errors related to Debian's local certificate, run:
+#scripts/config --disable SYSTEM_TRUSTED_KEYS
+#scripts/config --disable SYSTEM_REVOCATION_KEYS 
+
+
+## save default config
+
+Compile: Run 
+make ARCH=riscv -j$(nproc) bindeb-pkg 
+#to compile the kernel and modules using all available CPU cores.
+
+#Build Device Tree Blobs (DTBs): RISC-V relies on DTBs to describe hardware; generate them with 
+make ARCH=riscv dtbs
+
+
+sudo dpkg -i ../linux-image-*.deb ../linux-headers-*.deb
+
+make ARCH=riscv modules_install
+
+#Install Modules: Run sudo make ARCH=riscv modules_install to copy kernel modules to /lib/modules/.
+#Copy Binaries: Manually copy the compiled kernel image (found in arch/riscv/boot/Image) and the required DTB to the /boot/ directory.
+#Update Bootloader: Update your bootloader configuration (e.g., U-Boot or GRUB) to point to the new image path. For GRUB-based systems, use sudo update-grub.
+
